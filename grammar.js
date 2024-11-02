@@ -10,7 +10,7 @@ module.exports = grammar({
     double_brace: $ => seq(token("{{"), alias(balanced_brace, $.raw_expresion), token("}}")),
     triple_brace: $ => seq(token("{{{"), alias(balanced_brace, $.raw_expresion), token("}}}")),
 
-    comment: $ => token(seq("{{--", /[^-]*-*/, "--}}")),
+    comment: $ => token(seq("{{--", /[^-]*/, "--}}")),
 
     function: $ => seq("@", /(\r?\n|\t| )*/, $.identifier, /(\r?\n|\t| )*/, optional(alias(balanced_paren, $.raw_expresion))),
 
